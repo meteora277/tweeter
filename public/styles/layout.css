@@ -23,3 +23,19 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ .title {
+   font-family: 'Bungee', cursive;
+ }
+ .navbar {
+    color:#FFFFFF;
+    width: 100vw;
+    background-color: #4056A1;
+    height: 120px;
+    padding: 0 1.5em;
+   
+ }
+ .nav-tweet {
+   font-family: 'Source Sans Pro', sans-serif;
+ }
+
+
