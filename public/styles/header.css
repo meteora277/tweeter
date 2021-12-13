@@ -1,0 +1,18 @@
+.header {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-color: #cedbeb; 
+  background-image: url('../images/skulls.png');
+  padding-bottom: 1em;
+}
+.name {
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  color: white;
+}
+.user-image {
+  height: 200px;
+}
