@@ -1,0 +1,40 @@
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.new-tweet form {
+  display:flex;
+  flex-direction: column;
+}
+
+.new-tweet label {
+
+  font-weight: 600;
+
+}
+
+.new-tweet textarea {
+  background-color: #f4f1ec;
+  border: none;
+  border-bottom: 3px solid black;
+  height: 3rem;
+  margin-bottom: 1rem;
+  
+}
+.new-tweet textarea:focus {
+  outline:none;
+}
+.submit-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-tweet button {
+  border: none ;
+  background-color: #4152a1;
+  font-family: "Bungee", cursive;
+  color: white;
+  padding: 0.5rem 1rem;
+}
