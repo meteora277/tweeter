@@ -1,16 +1,17 @@
-$(document).ready(function() {
+$(document).ready(function () {
+  //updates character count
 
-  function updateLetterCount(count) {
+  $("#tweet-text").on("input", function() {
+    let charCount = this.value.length;
 
-    $('.counter').val(() => `${count}/140`) ;
+    let counter = $(this).parents().find(".counter");
 
-  }
+    counter.val(140 - charCount);
 
-  $('#tweet-text').on('keyup', (event) => {
-    
-    let characterCount = event.target.value.length
-    updateLetterCount(characterCount);
-
-  })
-
+    if (charCount > 140) {
+      counter.toggleClass("red-text", true);
+    } else {
+      counter.toggleClass("red-text", false);
+    }
+  });
 });
