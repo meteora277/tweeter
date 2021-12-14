@@ -2,17 +2,12 @@
   display: flex;
   flex-direction: column;
   font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
 }
 
 .new-tweet form {
   display:flex;
   flex-direction: column;
-}
-
-.new-tweet label {
-
-  font-weight: 600;
-
 }
 
 .new-tweet textarea {
@@ -21,7 +16,6 @@
   border-bottom: 3px solid black;
   height: 3rem;
   margin-bottom: 1rem;
-  
 }
 .new-tweet textarea:focus {
   outline:none;
@@ -29,6 +23,9 @@
 .submit-container {
   display: flex;
   justify-content: space-between;
+}
+.counter {
+  font-family: "Bungee", cursive;
 }
 
 .new-tweet button {
