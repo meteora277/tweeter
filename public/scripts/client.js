@@ -5,14 +5,8 @@
  */
 
 $(document).ready(() => {
-  
-  const loadTweets = function () {
-    $.ajax('/tweets', {method: 'GET'})
-    .then(function(data) {
-      renderTweets(data)
-    })
-  };
-  const createTweetElement = function ({ user, content, created_at }) {
+
+  const createTweetElement = function({ user, content, created_at }) {
     const $tweet = $(`
       <article class="tweet">
         <header>
@@ -40,28 +34,32 @@ $(document).ready(() => {
     `);
     return $tweet;
   };
-  
+
   //renders data array to tweets container
   const renderTweets = function(tweets) {
-    
-    let $tweets = $('#tweets-container') 
-    
+    let $tweets = $("#tweets-container");
     $tweets.empty();
-    
     for (const tweet of tweets) {
       $tweets.append(createTweetElement(tweet));
     }
-    return $tweets
-  }
-  loadTweets()
+    return $tweets;
+  };
 
-  $(".new-tweet > form").submit(function (event) {
+  const loadTweets = function() {
+    $.ajax("/tweets", { method: "GET" }).then(function(data) {
+      renderTweets(data);
+    });
+  };
+
+  loadTweets();
+
+  $(".new-tweet > form").submit(function(event) {
     console.log(event);
     event.preventDefault();
 
-    $.post("/tweets", $(this).serialize(), (response) => {
+    $.post("/tweets", $(this).serialize(), response => {
       console.log(response, "uwu");
+      loadTweets()
     });
   });
 });
-
