@@ -41,3 +41,7 @@ const createTweetElement = function ({ user, content, created_at }) {
 const $tweet = createTweetElement(tweetData);
 
 console.log($tweet);
+
+module.exports = {
+  createTweetElement
+}
