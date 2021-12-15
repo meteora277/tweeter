@@ -12,6 +12,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  position: fixed;
+
 }
 .nav-tweet {
   font-family: "Source Sans Pro", sans-serif;
