@@ -54,12 +54,20 @@ $(document).ready(() => {
   loadTweets();
 
   $(".new-tweet > form").submit(function(event) {
-    console.log(event);
+
     event.preventDefault();
 
-    $.post("/tweets", $(this).serialize(), response => {
-      console.log(response, "uwu");
-      loadTweets()
-    });
+      let tweetLength = $(this).children('#tweet-text').val().length
+      
+      if (tweetLength && tweetLength <= 140) {
+        $.post("/tweets", $(this).serialize(), response => {
+          console.log(response, "uwu");
+          loadTweets()
+        });
+      } else if (tweetLength > 140){
+        alert('Tweet is too long')
+      } else {
+        alert('Your tweet has no content :(')
+      }
   });
 });
