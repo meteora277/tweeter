@@ -56,12 +56,12 @@ $(document).ready(() => {
   $(".new-tweet > form").submit(function(event) {
 
     event.preventDefault();
-
-      let tweetLength = $(this).children('#tweet-text').val().length
+      let form = $(this).children('#tweet-text')
+      let tweetLength = form.val().length
       
       if (tweetLength && tweetLength <= 140) {
-        $.post("/tweets", $(this).serialize(), response => {
-          console.log(response, "uwu");
+        $.post("/tweets", $(this).serialize(), function() {
+          form.val('');
           loadTweets()
         });
       } else if (tweetLength > 140){
