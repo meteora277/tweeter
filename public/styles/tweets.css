@@ -1,0 +1,25 @@
+.tweet {
+
+  border: 3px solid black;
+  padding: 0.5em;
+
+}
+.tweet header {
+
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+.tweet section {
+
+  border-bottom: 3px solid;
+
+}
+.tweet footer {
+
+  display: flex;
+  justify-content: space-between;
+
+}
