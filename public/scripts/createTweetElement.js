@@ -1,27 +1,41 @@
-const tweetData = {
-  user: {
-    name: "Newton",
-    avatars: "https://i.imgur.com/73hZDYK.png",
-    handle: "@SirIsaac"
+const data = [
+  {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png"
+      ,
+      "handle": "@SirIsaac"
+    },
+    "content": {
+      "text": "If I have seen further it is by standing on the shoulders of giants"
+    },
+    "created_at": 1461116232227
   },
-  content: {
-    text: "If I have seen further it is by standing on the shoulders of giants"
-  },
-  created_at: 1461116232227
-};
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd" },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1461113959088
+  }
+]
+
 
 const createTweetElement = function ({ user, content, created_at }) {
-  const markUp = `
+  const $tweet = $(`
     <article class="tweet">
       <header>
-        <p><img src="${user.avatars} alt="user avatar""></img>${user.name}/p>
-        <p class='handle'>@${user.handle}user.</p>
+        <p><img src="${user.avatars} alt="user avatar""></img>${user.name}</p>
+        <p class='handle'>${user.handle}</p>
       </header>
       <section>
-        ${content}
+        ${content.text}
       </section>
       <footer>
-        ${created_at}
+        ${timeago.format(created_at)}
         <div>
           <a href="#">
             <i class="fas fa-flag"></i>
@@ -34,14 +48,21 @@ const createTweetElement = function ({ user, content, created_at }) {
           </a>
         </div>
       </footer>
-    </article>`;
-  return markUp;
+    </article>`);
+  return $tweet;
 };
 
-const $tweet = createTweetElement(tweetData);
+const renderTweets = function(tweets) {
 
-console.log($tweet);
+  let $tweets = $('#tweets') 
 
-module.exports = {
-  createTweetElement
+  $tweets.empty();
+
+  for (const tweet of tweets) {
+    $tweets.append(createTweetElement(tweet));
+  }
+  return $tweets
 }
+
+
+console.log(renderTweets(data))
