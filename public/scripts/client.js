@@ -40,7 +40,7 @@ $(document).ready(() => {
     let $tweets = $("#tweets-container");
     $tweets.empty();
     for (const tweet of tweets) {
-      $tweets.append(createTweetElement(tweet));
+      $tweets.prepend(createTweetElement(tweet));
     }
     return $tweets;
   };
