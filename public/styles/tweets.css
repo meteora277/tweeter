@@ -1,25 +1,40 @@
 .tweet {
-
+  margin-top: 3rem;
   border: 3px solid black;
   padding: 0.5em;
-
+  margin-bottom: 45rem;
+}
+.tweet:hover {
+  box-shadow: 10px 8px 2px pink;
+  transition: box-shadow 0.2s;
 }
 .tweet header {
-
   display: flex;
   justify-content: space-between;
-
 }
-
-
+.tweet .handle {
+  color: #cacee3;
+}
 .tweet section {
-
+  padding: 0 0.5em 1em 0.5em;
+  font-weight: 500;
+}
+.tweet section {
   border-bottom: 3px solid;
-
 }
 .tweet footer {
-
   display: flex;
+  font-size: 16px;
   justify-content: space-between;
+  padding: 0.5em 1em 1em 1em;
+}
+.tweet footer a {
+  color: #475699;
+}
+.tweet footer a:hover {
+  color: pink;
+}
 
+.tweet footer i {
+  margin: 0.2rem;
 }
