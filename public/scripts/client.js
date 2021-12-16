@@ -7,6 +7,13 @@
 $(document).ready(() => {
 
   const createTweetElement = function({ user, content, created_at }) {
+    
+    const escape = function(str) {
+      let div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+
     const $tweet = $(`
       <article class="tweet">
         <header>
@@ -14,7 +21,7 @@ $(document).ready(() => {
           <p class='handle'>${user.handle}</p>
         </header>
         <section>
-          ${content.text}
+          <p>${escape(content.text)}</p>
         </section>
         <footer>
           ${timeago.format(created_at)}
