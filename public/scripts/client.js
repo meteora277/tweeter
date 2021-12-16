@@ -5,14 +5,12 @@
  */
 
 $(document).ready(() => {
-
   const createTweetElement = function({ user, content, created_at }) {
-    
     const escape = function(str) {
-      let div = document.createElement('div');
+      let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
-    }
+    };
 
     const $tweet = $(`
       <article class="tweet">
@@ -61,21 +59,24 @@ $(document).ready(() => {
   loadTweets();
 
   $(".new-tweet > form").submit(function(event) {
-
     event.preventDefault();
-    let form = $(this).children('#tweet-text')
-    let tweetLength = form.val().length
-    let errorMessage = $(this).parents().find('.error')
-    console.log(errorMessage)
+    let form = $(this).children("#tweet-text");
+    let tweetLength = form.val().length;
+    let errorMessage = $(this).children(".error");
     if (tweetLength && tweetLength <= 140) {
       $.post("/tweets", $(this).serialize(), function() {
-        form.val('');
-        loadTweets()
+        form.val("");
+        loadTweets();
+        errorMessage.fadeOut()
       });
-    } else if (tweetLength > 140){
-      errorMessage.slideToggle("hide-error", false)
+    } else if (tweetLength > 140) {
+      errorMessage.fadeIn()
+      errorMessage.text("You have too many thoughts to contain in one tweet");
     } else {
-      errorMessage.slideToggle("hide-error", false)
+      errorMessage.fadeIn();
+      errorMessage.text("owo there's nothing here");
     }
   });
 });
+
+
