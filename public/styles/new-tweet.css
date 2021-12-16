@@ -39,23 +39,16 @@
   color: red;
 }
 .error {
-  transition: ease-in-out;
+
   color: white;
   position: relative;
   background-color: rgb(219, 125, 125);
   padding: 0.5em 1em;
   border-radius: 5px;
   font-weight: 600;
-  margin-top: 20px;
   margin-bottom: 1rem;
 }
-.error::before{
-  position: absolute;
-  content: "";
-  height: 0px;
-  width: 0px;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 20px solid rgb(219, 125, 125);
-  top: -20px;
+
+.hide-error {
+  display: none;
 }
