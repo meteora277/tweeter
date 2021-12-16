@@ -63,18 +63,19 @@ $(document).ready(() => {
   $(".new-tweet > form").submit(function(event) {
 
     event.preventDefault();
-      let form = $(this).children('#tweet-text')
-      let tweetLength = form.val().length
-      
-      if (tweetLength && tweetLength <= 140) {
-        $.post("/tweets", $(this).serialize(), function() {
-          form.val('');
-          loadTweets()
-        });
-      } else if (tweetLength > 140){
-        alert('Tweet is too long')
-      } else {
-        alert('Your tweet has no content :(')
-      }
+    let form = $(this).children('#tweet-text')
+    let tweetLength = form.val().length
+    let errorMessage = $(this).parents().find('.error')
+    console.log(errorMessage)
+    if (tweetLength && tweetLength <= 140) {
+      $.post("/tweets", $(this).serialize(), function() {
+        form.val('');
+        loadTweets()
+      });
+    } else if (tweetLength > 140){
+      errorMessage.slideToggle("hide-error", false)
+    } else {
+      errorMessage.slideToggle("hide-error", false)
+    }
   });
 });
