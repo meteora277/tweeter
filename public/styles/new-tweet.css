@@ -39,10 +39,10 @@
   color: red;
 }
 .error {
-
-  color: white;
+  
+  color: rgb(219, 125, 125);
   position: relative;
-  background-color: rgb(219, 125, 125);
+  border: 3px solid rgb(219, 125, 125);
   padding: 0.5em 1em;
   border-radius: 5px;
   font-weight: 600;
