@@ -16,5 +16,5 @@ $(document).ready(function () {
   }
 
   $("#tweet-text").on("input change", updateCharacterCount);
-
+  $(".new-tweet form").on('submit', updateCharacterCount)
 });
