@@ -39,6 +39,7 @@
   color: red;
 }
 .error {
+  transition: ease-in-out;
   color: white;
   position: relative;
   background-color: rgb(219, 125, 125);
