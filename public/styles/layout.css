@@ -26,25 +26,26 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
- .container {
-   margin: 0 5%;
-   width: 90%;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   font-family: "Source Sans Pro", sans-serif;
- }
+.container {
+  margin: 0 5%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Source Sans Pro", sans-serif;
+}
 
-  @media only screen and (min-width: 1024px) {
-
-    body {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .container { 
-      float: left;
-      width: 45%;
-    }
-
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-wrap: wrap;
   }
+
+  .container {
+    float: left;
+    width: 45%;
+  }
+  .tweet:nth-child(1) {
+    margin-top: 0;
+  }
+}
