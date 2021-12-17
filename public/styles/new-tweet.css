@@ -76,3 +76,10 @@
 .hide-error {
   display: none;
 }
+
+@media screen and (min-width: 1024px) {
+  
+  .new-tweet {
+    margin-bottom: 3rem;
+  }
+}
