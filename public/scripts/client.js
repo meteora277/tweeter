@@ -39,10 +39,17 @@ $(document).ready(() => {
     `);
     return $tweet;
   };
+  //initially hide newTweet on pageload so we can animate it in later
+  $('.new-tweet').hide();
+
+  $('.nav-tweet').on('click', () => {
+    $('.new-tweet').slideToggle();
+  })
 
   //renders data array to tweets container
   const renderTweets = function(tweets) {
     let $tweets = $("#tweets-container");
+    //empty so tweets do not repeat stack on bottom
     $tweets.empty();
     for (const tweet of tweets) {
       $tweets.prepend(createTweetElement(tweet));
@@ -63,6 +70,7 @@ $(document).ready(() => {
     let form = $(this).children("#tweet-text");
     let tweetLength = form.val().length;
     let errorMessage = $(this).children(".error");
+
     if (tweetLength && tweetLength <= 140) {
       $.post("/tweets", $(this).serialize(), function() {
         form.val("");
