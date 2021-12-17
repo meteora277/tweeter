@@ -2,7 +2,24 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
+This single page application was designed by Justin Diaz during week 4 of Lighthouse labs' web development bootcamp. Creating this page required usage of HTML, CSS, Javascript and JQuery. Stringing together Jquery methods had a learning curve during development, but reading through the docs to piece it together improved my skills as a developer.
+
+ As it currently stands this SPA makes asynchronous requests for tweets to the back-end. When it recieves tweets it will render a new tweet template for all tweet recieved. 
+
+ This page is both mobile and desktop friendly!
+
+# Screenshots
+
+#### Desktop View
+
+![Desktop View](docs/desktop-view.png)
+
+#### Mobile View
+
+![Mobile View](docs/mobile-view.jpeg)
+
+
+
 
 ## Getting Started
 
