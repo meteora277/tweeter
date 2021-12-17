@@ -44,6 +44,7 @@ $(document).ready(() => {
 
   $(".nav-tweet").on("click", () => {
     $(".new-tweet").slideToggle();
+    $('#tweet-text').focus()
   });
 
   //renders data array to tweets container
