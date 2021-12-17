@@ -83,7 +83,7 @@ $(document).ready(() => {
       errorMessage.text("You have too many thoughts to contain in one tweet");
     } else {
       errorMessage.fadeIn();
-      errorMessage.text("owo there's nothing here");
+      errorMessage.text("There's nothing here");
     }
     // refocus on form so tweet button animation resets to unhover
     newTweet.focus();
