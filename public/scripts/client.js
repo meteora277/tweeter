@@ -5,8 +5,8 @@
  */
 
 $(document).ready(() => {
-  const createTweetElement = function({ user, content, created_at }) {
-    const escape = function(str) {
+  const createTweetElement = function ({ user, content, created_at }) {
+    const escape = function (str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
@@ -40,14 +40,14 @@ $(document).ready(() => {
     return $tweet;
   };
   //initially hide newTweet on pageload so we can animate it in later
-  $('.new-tweet').hide();
+  $(".new-tweet").hide();
 
-  $('.nav-tweet').on('click', () => {
-    $('.new-tweet').slideToggle();
-  })
+  $(".nav-tweet").on("click", () => {
+    $(".new-tweet").slideToggle();
+  });
 
   //renders data array to tweets container
-  const renderTweets = function(tweets) {
+  const renderTweets = function (tweets) {
     let $tweets = $("#tweets-container");
     //empty so tweets do not repeat stack on bottom
     $tweets.empty();
@@ -57,34 +57,35 @@ $(document).ready(() => {
     return $tweets;
   };
 
-  const loadTweets = function() {
-    $.ajax("/tweets", { method: "GET" }).then(function(data) {
+  const loadTweets = function () {
+    $.ajax("/tweets", { method: "GET" }).then(function (data) {
       renderTweets(data);
     });
   };
 
   loadTweets();
 
-  $(".new-tweet > form").submit(function(event) {
+  $(".new-tweet > form").submit(function (event) {
     event.preventDefault();
-    let form = $(this).children("#tweet-text");
-    let tweetLength = form.val().length;
+
+    let newTweet = $(this).children("#tweet-text");
+    let tweetLength = newTweet.val().length;
     let errorMessage = $(this).children(".error");
 
     if (tweetLength && tweetLength <= 140) {
-      $.post("/tweets", $(this).serialize(), function() {
-        form.val("");
+      $.post("/tweets", $(this).serialize(), function () {
+        newTweet.val("");
         loadTweets();
-        errorMessage.fadeOut()
+        errorMessage.fadeOut();
       });
     } else if (tweetLength > 140) {
-      errorMessage.fadeIn()
+      errorMessage.fadeIn();
       errorMessage.text("You have too many thoughts to contain in one tweet");
     } else {
       errorMessage.fadeIn();
       errorMessage.text("owo there's nothing here");
     }
+    // refocus on form so tweet button animation resets to unhover
+    newTweet.focus();
   });
 });
-
-
